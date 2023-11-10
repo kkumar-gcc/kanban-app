@@ -1,0 +1,27 @@
+.kanban-board {
+  display: flex;
+  overflow: auto;
+}
+
+.kanban-column {
+  margin: 0 10px;
+  padding: 10px;
+  width: 400px;
+  flex-shrink: 0;
+}
+
+.kanban-column-content {
+  min-height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .kanban-column {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .kanban-column {
+    width: 350px;
+  }
+}
