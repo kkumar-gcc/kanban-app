@@ -20,7 +20,7 @@ export default function RenderByUser(){
                         <div className={"flex flex-row items-center mb-2"}>
                             <div className={"flex-1 flex flex-row items-center"}>
                                 <Avatar userID={user.id} className={"mr-1.5"}/>
-                                <h3 className={"font-medium text-lg"}>{user.name}</h3>
+                                <h3 className={"font-medium text-lg"}>{user.name}{renderTicketCount(user.id)}</h3>
                             </div>
 
                             <div className={"flex flex-row items-center"}>
@@ -50,5 +50,11 @@ export default function RenderByUser(){
                 ))}
             </div>
         );
+    }
+
+    function renderTicketCount(userID) {
+        const count = tickets.filter((ticket) => ticket.userId === userID).length;
+
+        return <span className={"ml-4"}>{count}</span>;
     }
 }

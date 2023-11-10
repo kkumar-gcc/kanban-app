@@ -27,7 +27,7 @@ export default function RenderByPriority(){
                     <div className={"flex flex-row items-center mb-2"}>
                         <div className={"flex-1 flex flex-row items-center"}>
                             <Priority priority={priority.id} className={"text-lg mr-1.5"}/>
-                            <h3 className={"font-medium text-lg"}>{priority.name}</h3>
+                            <h3 className={"font-medium text-lg"}>{priority.name} {renderTicketCount(priority.id)}</h3>
                         </div>
 
                         <div className={"flex flex-row items-center"}>
@@ -57,5 +57,11 @@ export default function RenderByPriority(){
                 ))}
             </div>
         );
+    }
+
+    function renderTicketCount(priority) {
+        const count = tickets.filter((ticket) => ticket.priority === priority).length;
+
+        return <span className={"ml-4"}>{count}</span>;
     }
 }

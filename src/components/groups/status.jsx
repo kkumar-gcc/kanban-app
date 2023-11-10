@@ -20,7 +20,7 @@ export default function RenderByStatus(){
                     <div className={"flex flex-row items-center mb-2"}>
                         <div className={"flex-1 flex flex-row items-center"}>
                             <Status status={status} className={"mr-1.5"}/>
-                            <h3 className={"font-medium text-lg"}>{status}</h3>
+                            <h3 className={"font-medium text-lg"}>{status}{renderTicketCount(status)}</h3>
                         </div>
 
                         <div className={"flex flex-row items-center"}>
@@ -50,5 +50,11 @@ export default function RenderByStatus(){
                 ))}
             </div>
         );
+    }
+
+    function renderTicketCount(status) {
+        const count = tickets.filter((ticket) => ticket.status === status).length;
+
+        return <span className={"ml-4"}>{count}</span>;
     }
 }
